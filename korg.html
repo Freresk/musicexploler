@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Макс Корж</h2>
+                    <img src="макс корж.png" alt="Макс Корж">
+                    <p>Макс Корж (полное имя — Максим Анатольевич Корж) — белорусский певец, автор песен и композитор. Родился 23 ноября 1988 года в Лунинце, Брестская область.</p>
+        
+                    <h3>История Макса Коржа</h3>
+                    <p>Карьера началась с выложенного в соцсети трека «Небо нам поможет», который стал популярным во время службы Коржа в армии. В 2012 году по окончанию службы певец подписал контракт с Respect Production и выпустил первый альбом «Животный мир». За дебютом последовали такие успешные пластинки, как «Жить в кайф», «Домашний» и «Малый повзрослел». </p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "житьвкайф.png", title: "Жить в кайф", artist: "Макс Корж", src: "Макс Корж - Жить в кайф.mp3" },
+        { image: "малый.png", title: "Малый повзрослел", artist: "Макс Корж", src: "Макс Корж - Малый повзрослел.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

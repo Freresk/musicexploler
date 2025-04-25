@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Конец солнечных дней</h2>
+                    <img src="конец солнечных дней.png" alt="Конец солнечных дней">
+                    <p>«Конец солнечных дней» — омская пост-панк группа, основанная в 2019 году. В текстах песен группы поднимаются темы юности, надежды, грустного реализма и меланхолии.</p>
+        
+                    <h3>История Группы:</h3>
+                    <p>Коллектив зародился не как классический ансамбль, а как сольный проект Ярослава Миркурбанова. До «Конца солнечных дней» Миркурбанов участвовал в юмористическом проекте «Постэстетика», который пародировал новосибирскую группу «Буерак». Стремление к более серьёзному и лиричному звучанию привело к созданию «Конца солнечных дней».  2019 году вышли два альбома: «Мне никогда не было весело с тобой» и «Обычный грустный реализм». В 2024 году группа начала работу над новым материалом и готовилась к концертным выступлениям по всей России. Планировалось, что летом 2025 года коллектив дебютирует на фестивале «Дикая Мята».</p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "неважно.png", title: "Неважно", artist: "Конец солнечных дней", src: "конец солнечных дней - неважно.mp3" },
+        { image: "дети.png", title: "Дети немой страны", artist: "Конец солнечных дней", src: "конец солнечных дней - дети немой страны.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

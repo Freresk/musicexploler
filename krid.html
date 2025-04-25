@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Егор Крид</h2>
+                    <img src="крид.png" alt="Егор крид">
+                    <p>Егор Крид (настоящее имя — Егор Николаевич Булаткин) — российский певец, рэпер, автор песен, актёр, ютубер, стример и телеведущий. Является автором и исполнителем собственных песен.</p>
+        
+                    <h3>История Егора</h3>
+                    <p>Сольную карьеру начал в 2011 году под псевдонимом KReeD, сейчас выступает под именем Егор Крид. В 2011 году с помощью друзей снял первый клип на песню собственного сочинения «Любовь в сети», который набрал более миллиона просмотров на YouTube. В 2012 году стал победителем конкурса «Звезда Вконтакте — Пятый канал» в номинации «Лучший хип-хоп проект».
+                        Дебютный альбом Крида под названием «Холостяк» был выпущен в 2015 году. В 2018 году стал главным героем шестого сезона шоу «Холостяк». В 2019 году певец покинул лейбл «Black Star» и сосредоточился на самостоятельном продвижении. 
+                        В октябре 2024 года в рамках рекламной кампании сервиса «Яндекса» для оплаты покупок по частям сменил псевдоним на Егор Сплит.</p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "будильник.png", title: "Будильник", artist: "Егор Крид", src: "ЕГОР КРИД - Будильник.mp3" },
+        { image: "холостяк.png", title: "Холостяк", artist: "ЛСП, Feduk, Егор Крид", src: "ЛСП, Feduk, Егор Крид - Холостяк.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

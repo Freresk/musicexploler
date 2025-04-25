@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Кишлак</h2>
+                    <img src="кишлак.png" alt="Кишлак">
+                    <p>Кишлак (настоящее имя — Максим Сергеевич Фисенко) — российский музыкальный исполнитель, музыкант и автор песен. Родился 14 декабря 1998 года в Североморске, Мурманская область.</p>
+        
+                    <h3>История Кишлака</h3>
+                    <p>Первые песни записал в 14 лет на телефон — выкладывал их в соцсетях под псевдонимом «Автостопом по фазе сна». До проекта «Кишлак» Максим успел создать и закрыть много других проектов: «Автостопом по фазе сна», «Bisexual From The Village», «Солнечный Муслим», «Русалочье урочище», «писък» и другие. В 2019 году Фисенко под псевдонимом АПФС выпустил альбом «Кругосветка в рамках черепной коробки». Спустя год Максим взял новое сценическое имя Кишлак, выпустив альбом «11:11» Творчество представляет собой симбиоз эмо-рока с элементами рэпа и EDM в лоу-фай-звучании. В 2023 году артист полностью отказался от пагубных привычек, придерживаясь здорового образа жизни. В 2024 году Кишлак пообещал выпустить три альбома, два из которых сольные. </p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "альфапве.png", title: "Alfa-pve", artist: "Кишлак", src: "Кишлак - Alfa-Pvp.mp3" },
+        { image: "самый.png", title: "Самый лучший день", artist: "Кишлак", src: "Кишлак - Самый лучший день.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

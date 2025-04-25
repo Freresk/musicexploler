@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Король и Шут</h2>
+                    <img src="король и шут.png" alt="Король и Шут">
+                    <p>«Король и Шут» (сокращённо «КиШ») — советская и российская хоррор-панк-группа из Санкт-Петербурга. Коллектив был образован в Ленинграде в 1988 году.</p>
+        
+                    <h3>История Группы</h3>
+                    <p>Песни группы представляют собой небольшие законченные истории, часто в фэнтезийном, мистическом, а также историческом и ужасающем ключе.Изначально преобладающий в музыкальной составляющей ритмичный хоррор-панк со временем вышел за границы стиля и вобрал в себя множество музыкальных элементов: фолк-рок («Акустический альбом»), арт-панк («Театр демона»), хардкор-панк («Бунт на корабле»), хард-рок («Как в старой сказке») и многие другие.В нулевых «Король и Шут» завоевали чарты «Нашего радио», получили премию MTV, выступили на разогреве у The Stranglers и The Exploited и стали хедлайнерами всех больших рок-фестивалей.После смерти лидера и одного из основателей Михаила Горшенёва 19 июля 2013 года группа перестала существовать в классическом виде, но продолжает выступать в рок-мюзикле TODD.</p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "кукла колдуна.png", title: "Кукла колдуна", artist: "Король и Шут", src: "Король и Шут - Кукла колдуна.mp3" },
+        { image: "лесник.png", title: "Лесник", artist: "Король и Шут", src: "Король и Шут - Лесник.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>
