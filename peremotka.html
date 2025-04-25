@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Перемотка</h2>
+                    <img src="перемотка.png" alt="Егор крид">
+                    <p>«Перемотка» — российская рок-группа из Екатеринбурга, основанная в 2015 году. Коллектив исполняет музыку в жанрах пост-панк, пост-рок и нью-вейв.</p>
+        
+                    <h3>История Группы</h3>
+                    <p>Изначально группа исполняла композиции других коллективов, однако позже стала писать собственную музыку.Популярность пришла к коллективу благодаря социальной сети «ВКонтакте». В 2020 году была выпущена песня «Как тебя покорить?», которая принесла группе известность. Клип песни набрал почти полмиллиона просмотров в YouTube.</p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "как тебя покарить.png", title: "Как тебя покарить", artist: "Перемотка", src: "Перемотка - Как тебя покорить.mp3" },
+        { image: "встречная.png", title: "Встречная", artist: "Перемотка", src: "Перемотка - Встречная.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

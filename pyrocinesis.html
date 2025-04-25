@@ -1,0 +1,80 @@
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Pyrocinesis</h2>
+                    <img src="pyrocinesis.png" alt="Pyrocinesis">
+                    <p>Pyrokinesis (настоящее имя — Андрей Игоревич Фёдорович) — российский рэпер.</p>
+        
+                    <h3>История Pyrocinesis</h3>
+                    <p>Начинал творческий путь с написания стихотворений и рассказов, затем стал пробовать себя в жанре рэп. В 2015 году вышли его первый мини-альбом «5», ещё один релиз такого формата Burn to Die и полноценный альбом Black Roze x Red Roze. В 2016 и 2017 годах вышли альбомы Eclipse и «Терновый венец эволюции», значительно повлиявшие на карьерный путь рэпера. Отличительной особенностью работ исполнителя является их концептуальность. В своих треках он делает упор на текстовую составляющую, а также тщательно продумывает образы лирических героев.</p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "днями.png", title: "Днями-ночами", artist: "Pyrocinesis", src: "pyrokinesis, МУККА - Днями-ночами.mp3" },
+        { image: "цветами радуги.png", title: "Цветами радуги", artist: "Pyrocinesis", src: "pyrokinesis - Цветами радуги.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>
