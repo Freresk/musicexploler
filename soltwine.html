@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>Soltwine</h2>
+                    <img src="soltwine.png" alt="Soltwine">
+                    <p>Soltwine — инди-рок-исполнитель из Белгорода, музыкальный проект Андрея Волобуева (родился 8 августа 2000 года). Начал музыкальную карьеру в 2019 году.</p>
+        
+                    <h3>История Soltwine</h3>
+                    <p>В 2018 году вышел первый акустический альбом, который после был перезаписан.В 2021 году Волобуев сочинил песню «Чучело». Вся композиция — пересказ знакомства автора с девушкой, которая училась в Москве и приехала в Белгород погоститьВ 2022 году сообщалось, что за несколько лет музыкальной карьеры Soltwine набрал больше 200 тысяч подписчиков в «ТикТоке», выступил на Дне города Белгорода, а его песня «Ставь чайник» перешла отметку в 10 миллионов прослушиваний. </p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "рандеву.png", title: "Рандеву", artist: "Soltwine", src: "рандеву.mp3" },
+        { image: "пришла весна.png", title: "Пришла весна", artist: "Soltwine", src: "пришлавесна.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

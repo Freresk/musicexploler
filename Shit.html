@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Genres</title>
+        <link rel="stylesheet" href="ispol.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Music Explorer</a>
+                <ul>
+                    <li><a href="index.html">Жанры</a></li>
+                    <li><a href="artists.html">Исполнители</a></li>
+                </ul>
+                <input type="search" placeholder="Поиск">
+            </nav>
+        </header>
+
+            <main>
+                <section class="genre-info">
+                    <h2>ssshhhiiittt!</h2>
+                    <img src="ssshhhiiittt!.png" alt="ssshhhiiittt!">
+                    <p>«Ssshhhiiittt!» — российская рок-группа, основанная Никитой Кисловым в 2015 году. Коллектив сочетает жанры альтернативного рока, инди-рока, постпанка, психоделического рока и сёрф-рока.</p>
+        
+                    <h3>История группы</h3>
+                    <p>Они начали давать свои первые концерты в родном городе, но Ростовской публике не прижились их лирические песни. Однако на первый концерт в Ярославле публика уже специально пришла в бар ради «ssshhhiiittt!».Группа набрала популярность к 2017 году, в частности, благодаря социальной сети «ВКонтакте». Главный хит коллектива — композиция «Танцы» из альбома «Последнее лето (Часть 2)» </p>
+        
+                    
+        
+                    <h3>Популярные песни:</h3>
+
+
+<script>
+    const musicBlocksContainer = document.body;
+
+    const songs = [
+        { image: "танцы.png", title: "Танцы", artist: "ssshhhiiittt!", src: "ssshhhiiittt! - Танцы.mp3" },
+        { image: "надежда.png", title: "Надежда", artist: "ssshhhiiittt!", src: "ssshhhiiittt! - надежда.mp3" },
+        // ... больше песен
+    ];
+
+    songs.forEach(song => {
+        const block = document.createElement('div');
+        block.classList.add('music-block');
+
+        block.innerHTML = `
+            <img src="${song.image}" alt="${song.title}">
+            <div class="music-info">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+            <span class="play-button" data-src="${song.src}">►</span>
+            <audio></audio>
+        `;
+        musicBlocksContainer.appendChild(block);
+
+        // Обработчик клика на кнопку воспроизведения
+      const playButton = block.querySelector('.play-button');
+      const audio = block.querySelector('audio');
+
+
+        playButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.src = playButton.dataset.src;
+            audio.play();
+            playButton.textContent = '⏸️'; // Изменяем текст кнопки на паузу
+        } else {
+            audio.pause();
+            playButton.textContent = '►'; // Изменяем текст кнопки на воспроизведение
+        }
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: #d7b080;
+}
+
+header {
+    background: #252525;
+    color: white;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /* ваши текущие стили для логотипа */
+    text-decoration: none; /* убираем подчеркивание */
+    color: inherit; /* наследуем цвет от родителя или задайте свой */
+    display: inline-block; /* делаем элемент строчно-блочным */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+input[type="search"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+  .logo {
+    /* ваши текущие стили для логотипа */
+    text-decoration: none; /* убираем подчеркивание */
+    color: inherit; /* наследуем цвет от родителя или задайте свой */
+    display: inline-block; /* делаем элемент строчно-блочным */
+}
+.logo:hover{
+    cursor: pointer;
+}
+
+
+.album-list {
+    display: flex;
+    flex-wrap: wrap; /* позволяет альбомам переноситься на новую строку */
+    justify-content: space-between; /* равномерное распределение альбомов */
+}
+
+.album {
+    width: 600px; /* ширина каждого альбома */
+    margin-bottom: 10px;
+    text-align: center; /* центрирование текста */
+}
+
+.album img {
+    max-width: 300%; /* изображение не выходит за границы блока */
+}
+
+.album h4 {
+    margin-top: 10px;
+}
+
+/* Стили для ссылок на исполнителей */
+.genre-info a {
+    color: #007bff; /* цвет ссылки (можно изменить) */
+    text-decoration: none; /* убираем подчеркивание */
+}
+
+.genre-info a:hover {
+    text-decoration: underline; /* подчеркивание при наведении */
+}
+
+
+/* Общие стили (могут уже быть в вашем CSS) */
+.genre-info {
+    padding: 20px;
+}
+
+.genre-info h2 {
+    margin-bottom: 20px;
+}
+
+.genre-info img {
+    max-width: 25%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.genre-info p {
+    margin-bottom: 20px;
+}
+
+.genre-info ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}

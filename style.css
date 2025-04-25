@@ -1,0 +1,141 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: #d7b080;
+}
+
+header {
+    background: #252525;
+    color: white;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /* ваши текущие стили для логотипа */
+    text-decoration: none; /* убираем подчеркивание */
+    color: inherit; /* наследуем цвет от родителя или задайте свой */
+    display: inline-block; /* делаем элемент строчно-блочным */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.genres {
+    padding: 20px;
+}
+
+.genre-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+}
+
+.genre {
+    background: white;
+    transition: transform 0.3s ease; /* Добавляем плавный переход */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.genre img {
+    max-width: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+.genre h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.genre p {
+    font-size: 14px;
+}
+
+input[type="search"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+
+.genre-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+
+
+.genre:hover {
+    transform: scale(1.05); /* Увеличиваем масштаб при наведении */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+
+}
+
+.genre a {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Важно! */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit;       /* Наследуем цвет текста от родителя */
+  }
+  
+  .genre:hover a { /* Или просто .genre a:hover */
+    cursor: pointer; /* Меняем курсор на "указатель" */
+  
+  }
+
+
+
+.logo:hover{
+    cursor: pointer;
+}
+
+.circular-image-block {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы вертикально */
+    align-items: center;    /* Выравниваем элементы по центру */
+    text-align: center;     /* Выравниваем текст по центру */
+  }
+  
+
+  
+  
+  .circular-image-block img {
+    width: 150px;          /* Ширина изображения */
+    height: 150px;         /* Высота изображения */
+    border-radius: 50%;   /* Делаем изображение круглым */
+    object-fit: cover;    /* Чтобы изображение правильно масштабировалось и обрезалось */
+    margin-bottom: 10px; /* Отступ снизу */
+  }
+  .circular-image-block a {
+    color: inherit;
+  }
+  
+  .image-title {
+    font-size: 16px;        /* Размер шрифта */
+  }
